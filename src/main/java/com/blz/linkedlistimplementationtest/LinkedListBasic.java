@@ -35,7 +35,11 @@ public class LinkedListBasic {
 		node.setNext(newNode);
 		newNode.setNext(temNode);
 	}
-
+	public INode pop() {
+		INode tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
+	}
 	public void printNodes() {
 		System.out.println("Linked List : ");
 		INode tempNode = head;

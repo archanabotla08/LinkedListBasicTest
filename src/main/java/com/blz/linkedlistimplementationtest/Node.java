@@ -1,14 +1,24 @@
 package com.blz.linkedlistimplementationtest;
 
-public class Node<K> {
+public class Node<K> implements INode<K> {
 	private K key;
-	private Node next;
+	private INode next;
 	
-	public Node getNext() {
+	public INode getNext() {
 		return next;
 	}
+	
+	@Override
+	public K getKey() {
+		return key;
+	}
 
-	public void setNext(Node next) {
+	@Override 
+	public void setKey(K key) {
+		this.key = key;
+	}
+
+	public void setNext(INode next) {
 		this.next = next;
 	}
 

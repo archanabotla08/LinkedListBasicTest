@@ -40,5 +40,21 @@ public class LinkedListTest {
 		assertTrue(result);
 		
 	}
+	@Test  
+	public void given3NumberWhenInsertingInBetweenNodesToLinkedList() {
+		Node<Integer> firstNewNode = new Node<>(56);
+		Node<Integer> secondNewNode = new Node<>(30);
+		Node<Integer> thirdNewNode = new Node<>(70);
+		LinkedListBasic linkedList = new LinkedListBasic();
+		linkedList.add(firstNewNode);
+		linkedList.append(thirdNewNode);
+		linkedList.insert(firstNewNode, secondNewNode);
+		linkedList.printNodes();
+		boolean result = linkedList.head.equals(firstNewNode) &&
+						 linkedList.head.getNext().equals(secondNewNode) &&
+						 linkedList.tail.equals(thirdNewNode);
+		assertTrue(result);
+		
+	}
 
 }

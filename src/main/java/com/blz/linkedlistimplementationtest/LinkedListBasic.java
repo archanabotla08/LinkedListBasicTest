@@ -29,6 +29,12 @@ public class LinkedListBasic {
 			this.tail = newNode;
 		}
 	}
+	
+	public void insert(INode node, INode newNode) {
+		INode temNode = node.getNext();
+		node.setNext(newNode);
+		newNode.setNext(temNode);
+	}
 
 	public void printNodes() {
 		System.out.println("Linked List : ");

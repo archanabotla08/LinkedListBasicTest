@@ -74,6 +74,36 @@ public class LinkedListBasic<K> {
 		assignNode.setNext(newNode);
 		newNode.setNext(temNode_1);
 	}
+	public int size() {
+		int size = 0;
+		if (this.head == null) {
+			return size;
+		}
+		INode tempNode = this.head;
+		while (tempNode.getNext() != null) {
+			tempNode = tempNode.getNext();
+			size++;
+		}
+		System.out.println(size++);
+		return size++;
+	}
+	public INode searchDelete(K key) {
+		INode tempNode = head;
+		INode headNode = head;
+		while (!(headNode.getKey() == key)) {
+			headNode = headNode.getNext();
+		}
+		this.head = tempNode;
+		pop();
+		INode tailNode = this.head;
+		this.head = tempNode;
+		INode tempNode1 = this.head;
+		while (tempNode1.getNext().getKey() != key) {
+			tempNode1 = tempNode1.getNext();
+		}
+		tempNode1.setNext(tailNode);
+		return this.head;
+	}
 	public void printNodes() {
 		System.out.println("Linked List : ");
 		INode tempNode = head;

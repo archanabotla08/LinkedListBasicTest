@@ -3,6 +3,7 @@ package com.blz.linkedlistimplementationtest;
 public class LinkedListBasic<K> {
 	public INode head;
 	public INode tail;
+	public INode assignNode;
 
 	public void add(INode newNode) {
 		if (tail == null) {
@@ -43,24 +44,14 @@ public class LinkedListBasic<K> {
 		return tempNode;
 	}
 
-	public INode popLast() {
-		if (this.head == null) {
-			System.out.println("List is Empty");
-		} else {
-			if (this.head != this.tail) {
-				INode tempNode = this.head;
-				while (tempNode.getNext() != this.tail) {
-					tempNode = tempNode.getNext();
-				}
-				this.tail = tempNode;
-				this.tail = tail.getNext();
-			} else {
-				this.head = null;
-				this.tail = null;
-			}
+	public INode popEnd() {
+		INode tempNode = head;
+		while(!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
 		}
-
-		return tail;
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();
+		return tempNode;
 	}
 
 	public INode search(K key) {
@@ -71,6 +62,15 @@ public class LinkedListBasic<K> {
 			tempNode = tempNode.getNext();
 		}
 		return head;
+	}
+
+	public void searchAdd(K key, INode newNode) {
+		INode tempNode = head;
+		while (!(tempNode.getKey() == key)) {
+			assignNode = tempNode;
+			tempNode = tempNode.getNext();
+		}
+		insert(assignNode, newNode);
 	}
 
 	public void printNodes() {

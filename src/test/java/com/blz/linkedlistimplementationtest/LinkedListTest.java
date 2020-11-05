@@ -66,8 +66,8 @@ public class LinkedListTest {
 		linkedList.append(secondNewNode);
 		linkedList.append(thirdNewNode);
 		linkedList.pop();
-		linkedList.printNodes();
-		boolean result = linkedList.head.equals(secondNewNode) && linkedList.tail.equals(thirdNewNode);
+		boolean result = linkedList.head.equals(secondNewNode) &&
+						 linkedList.tail.equals(thirdNewNode);
 		assertTrue(result);
 
 	}
@@ -81,8 +81,9 @@ public class LinkedListTest {
 		linkedList.add(firstNewNode);
 		linkedList.append(secondNewNode);
 		linkedList.append(thirdNewNode);
-		linkedList.popEnd();
-		boolean result = linkedList.head.equals(firstNewNode) && linkedList.tail.equals(secondNewNode);
+		linkedList.popLast();
+		boolean result = linkedList.head.equals(firstNewNode) &&
+						 linkedList.tail.equals(secondNewNode);
 		assertTrue(result);
 
 	}

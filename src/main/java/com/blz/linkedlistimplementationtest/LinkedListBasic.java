@@ -44,33 +44,15 @@ public class LinkedListBasic<K> {
 		return tempNode;
 	}
 
-	public INode popEnd() {
+	
+	public INode popLast() {
 		INode tempNode = head;
-		while(!tempNode.getNext().equals(tail)) {
+		while (!tempNode.getNext().equals(tail)) {
 			tempNode = tempNode.getNext();
 		}
 		this.tail = tempNode;
 		tempNode = tempNode.getNext();
 		return tempNode;
-	}
-
-	public INode search(K key) {
-		INode tempNode = head;
-		while (tempNode != null) {
-			if (tempNode.getKey() == key)
-				head = tempNode;
-			tempNode = tempNode.getNext();
-		}
-		return head;
-	}
-
-	public void searchAdd(K key, INode newNode) {
-		INode tempNode = head;
-		while (!(tempNode.getKey() == key)) {
-			assignNode = tempNode;
-			tempNode = tempNode.getNext();
-		}
-		insert(assignNode, newNode);
 	}
 
 	public void printNodes() {

@@ -40,6 +40,27 @@ public class LinkedListBasic {
 		this.head = head.getNext();
 		return tempNode;
 	}
+	
+	public INode popLast() {
+		if(this.head == null) {
+			System.out.println("List is Empty");
+		}
+		else{
+			if(this.head != this.tail) {
+				INode tempNode = this.head;
+				while(tempNode.getNext() != this.tail) {
+					tempNode = tempNode.getNext();
+				}
+				this.tail = tempNode;
+				this.tail = tail.getNext();
+			}else {
+				this.head = null;
+				this.tail = null;
+			}
+		}
+		
+		return tail;
+	}
 	public void printNodes() {
 		System.out.println("Linked List : ");
 		INode tempNode = head;

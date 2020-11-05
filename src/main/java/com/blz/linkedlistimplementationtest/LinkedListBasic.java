@@ -55,6 +55,15 @@ public class LinkedListBasic<K> {
 		return tempNode;
 	}
 
+	public INode search(K key) {
+		INode tempNode = head;
+		while (tempNode != null && tempNode.getNext() != null) {
+			if(tempNode.getKey().equals(key))
+				return tempNode;
+		}
+		return null;
+	}
+
 	public void printNodes() {
 		System.out.println("Linked List : ");
 		INode tempNode = head;

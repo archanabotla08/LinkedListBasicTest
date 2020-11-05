@@ -66,8 +66,7 @@ public class LinkedListTest {
 		linkedList.append(secondNewNode);
 		linkedList.append(thirdNewNode);
 		linkedList.pop();
-		boolean result = linkedList.head.equals(secondNewNode) &&
-						 linkedList.tail.equals(thirdNewNode);
+		boolean result = linkedList.head.equals(secondNewNode) && linkedList.tail.equals(thirdNewNode);
 		assertTrue(result);
 
 	}
@@ -82,11 +81,24 @@ public class LinkedListTest {
 		linkedList.append(secondNewNode);
 		linkedList.append(thirdNewNode);
 		linkedList.popLast();
-		boolean result = linkedList.head.equals(firstNewNode) &&
-						 linkedList.tail.equals(secondNewNode);
+		boolean result = linkedList.head.equals(firstNewNode) && linkedList.tail.equals(secondNewNode);
 		assertTrue(result);
 
 	}
 
-	
+	@Test
+	public void given3NumberSearchForGivenValueToLinkedList() {
+		Node<Integer> firstNewNode = new Node<>(56);
+		Node<Integer> secondNewNode = new Node<>(30);
+		Node<Integer> thirdNewNode = new Node<>(70);
+		LinkedListBasic linkedList = new LinkedListBasic();
+		linkedList.add(firstNewNode);
+		linkedList.append(secondNewNode);
+		linkedList.append(thirdNewNode);
+		linkedList.search(30);
+		boolean result = linkedList.head.equals(secondNewNode);
+		assertTrue(result);
+
+	}
+
 }

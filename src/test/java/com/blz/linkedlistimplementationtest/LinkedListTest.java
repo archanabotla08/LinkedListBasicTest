@@ -100,5 +100,24 @@ public class LinkedListTest {
 		assertTrue(result);
 
 	}
+	@Test
+	public void given3NumberSearchForGivenValueAddNewNodeToLinkedList() {
+		Node<Integer> firstNewNode = new Node<>(56);
+		Node<Integer> secondNewNode = new Node<>(30);
+		Node<Integer> thirdNewNode = new Node<>(70);
+		Node<Integer> forthNewNode = new Node<>(30);
+		LinkedListBasic linkedList = new LinkedListBasic();
+		linkedList.add(firstNewNode);
+		linkedList.append(secondNewNode);
+		linkedList.append(thirdNewNode);
+		linkedList.searchAdd(30, forthNewNode);
+		linkedList.printNodes();
+		boolean result = linkedList.head.equals(firstNewNode) && linkedList.head.getNext().equals(secondNewNode)
+				&& linkedList.head.getNext().getNext().equals(forthNewNode) && linkedList.tail.equals(thirdNewNode);
+		assertTrue(result);
 
+	}
+
+
+	
 }

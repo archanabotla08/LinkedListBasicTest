@@ -63,7 +63,17 @@ public class LinkedListBasic<K> {
 		}
 		return null;
 	}
-
+	public void searchAdd(K key, INode newNode) {
+		INode tempNode = head;
+		INode assignNode = null;
+		while (tempNode != null && tempNode.getNext() != null) {
+			if(tempNode.getKey().equals(key))
+				assignNode = tempNode;
+		}
+		INode temNode_1 = assignNode.getNext();
+		assignNode.setNext(newNode);
+		newNode.setNext(temNode_1);
+	}
 	public void printNodes() {
 		System.out.println("Linked List : ");
 		INode tempNode = head;

@@ -44,35 +44,34 @@ public class LinkedListBasic<K> {
 	}
 
 	public INode popLast() {
-		if (this.head == null) {
-			System.out.println("List is Empty");
-		} else {
-			if (this.head != this.tail) {
-				INode tempNode = this.head;
-				while (tempNode.getNext() != this.tail) {
-					tempNode = tempNode.getNext();
-				}
-				this.tail = tempNode;
-				this.tail = tail.getNext();
-			} else {
-				this.head = null;
-				this.tail = null;
-			}
+		INode tempNode = head;
+		while (!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
 		}
-
-		return tail;
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();
+		return tempNode;
 	}
 
 	public INode search(K key) {
 		INode tempNode = head;
-		while (tempNode != null) {
-			if (tempNode.getKey() == key)
-				head = tempNode;
-			tempNode = tempNode.getNext();
+		while (tempNode != null && tempNode.getNext() != null) {
+			if(tempNode.getKey().equals(key))
+				return tempNode;
 		}
-		return head;
+		return null;
 	}
-
+	public void searchAdd(K key, INode newNode) {
+		INode tempNode = head;
+		INode assignNode = null;
+		while (tempNode != null && tempNode.getNext() != null) {
+			if(tempNode.getKey().equals(key))
+				assignNode = tempNode;
+		}
+		INode temNode_1 = assignNode.getNext();
+		assignNode.setNext(newNode);
+		newNode.setNext(temNode_1);
+	}
 	public void printNodes() {
 		System.out.println("Linked List : ");
 		INode tempNode = head;
